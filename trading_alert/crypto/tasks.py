@@ -43,7 +43,7 @@ def send_alert_crypto(crpyto_id):
     if cripto_alert.limit_notif >= cripto_alert.success_notif:
         cripto_alert.currency_price = get_current_price(cripto_alert)
         is_email = False
-        if eval(
+        if cripto_alert.currency_price != 0 and eval(
                 f"{cripto_alert.currency_price} {cripto_alert.operator} {cripto_alert.price}"
             ):
             send_email_crypto(cripto_alert)
